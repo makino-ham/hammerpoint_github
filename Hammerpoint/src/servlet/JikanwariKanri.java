@@ -30,11 +30,10 @@ public class JikanwariKanri extends HttpServlet {
 		// TODO Auto-generated method stub
 		String action=request.getParameter("action");
 
-//		if(時間割登録画面だったら遷移
-		if(action.equals("kanri")){
+		if(action.equals("kanri")){//~~時間割管理
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwari.jsp");
 			dispatcher.forward(request, response);
-}else if (action.equals("touroku")) {
+}else if (action.equals("touroku")) {//~~時間割登録
 		List<ClassRoom> classList = new ArrayList<ClassRoom>();
 		ClassDAO classDAO=new ClassDAO();
 		classList=classDAO.classListOut();
@@ -43,8 +42,25 @@ public class JikanwariKanri extends HttpServlet {
 		request.setAttribute("classList", classList);
 	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwaritouroku.jsp");
 	dispatcher.forward(request, response);
-
-	}
+	}else if (action.equals("ikkatu")) {//~~時間割一括登録
+	List<ClassRoom> classList = new ArrayList<ClassRoom>();
+	ClassDAO classDAO=new ClassDAO();
+	classList=classDAO.classListOut();
+	int check = 0;
+	request.setAttribute("check", check);
+	request.setAttribute("classList", classList);
+RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwariikkatutouroku.jsp");
+dispatcher.forward(request, response);
+}else if (action.equals("hensaku")) {//~~時間割変更削除一覧
+	List<ClassRoom> classList = new ArrayList<ClassRoom>();
+	ClassDAO classDAO=new ClassDAO();
+	classList=classDAO.classListOut();
+	int check = 0;
+	request.setAttribute("check", check);
+	request.setAttribute("classList", classList);
+RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwarihensaku.jsp");
+dispatcher.forward(request, response);
+}
 }
 
 	/**
@@ -67,8 +83,12 @@ public class JikanwariKanri extends HttpServlet {
 		int check = 1;
 		request.setAttribute("check", check);
 //もう一度遷移
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwaritouroku.jsp");
-		dispatcher.forward(request, response);
+//ここで時間割登録と時間割変更削除一覧の画面に分岐したいが。。。
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwaritouroku.jsp");
+			dispatcher.forward(request, response);
+
+		}
+
 
 
 
@@ -76,4 +96,4 @@ public class JikanwariKanri extends HttpServlet {
 
 	}
 
-}
+
