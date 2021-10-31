@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>時間割変更削除検索</title>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/style.css" />
 <script type="text/javascript"src="<%=request.getContextPath() %>/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript"src="<%=request.getContextPath() %>/js/myscript.js"></script>
-<title>時間割登録</title>
 </head>
 <body>
 <h1>${account.name }　さん　ようこそ</h1>
@@ -31,7 +31,7 @@
 		<tr><th>選択</th><th>教科</th></tr>
 	<c:forEach var="kyouka" items="${kyoukaList}">
 		<tr>
-		<td align="center"><input type="radio" name="kyoukaRadio" value="${kyouka.kyoukaId }"></td>
+		<td align="center"><input type="checkbox" name="kyoukaRadio" value="${kyouka.kyoukaId }"></td>
 		<td><c:out value="${kyouka.kyoukaName}" /></td>
 		</tr>
 	</c:forEach>
@@ -41,5 +41,7 @@
 </c:choose>
 </center>
 
+</body>
+</html>
 </body>
 </html>
