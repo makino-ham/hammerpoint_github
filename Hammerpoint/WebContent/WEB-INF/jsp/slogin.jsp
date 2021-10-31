@@ -15,9 +15,9 @@
 <a class="button c" href="/Hammerpoint/Login?action=start" method="post"id="absolute">←</a>
 
 <form action="/Hammerpoint/Login" method="post">
-<input type="text" placeholder="システム管理者IDを入力" class="textbox" name="id"required="required">
+<input type="text" placeholder="システム管理者IDを入力" class="textbox" name="id"required="required" value="50001">
 <br>
-<input type="password" placeholder="パスワードを入力" class="textbox" name="pass"required="required">
+<input type="password" placeholder="パスワードを入力" class="textbox" name="pass"required="required" value="test">
 <br>
 ${err }
 <br>
