@@ -14,7 +14,7 @@
 <a class="button c" href="/Hammerpoint/Login?action=smain" method="post"id="absolute">←</a>
 
 	<h1>${account.name }　さん　ようこそ</h1>
-	<!-- うまいことで来てるかな17:30 -->
+
 	<table>
 		<tr>
 		<td><a class="button a" href="/Hammerpoint/JikanwariKanri?action=touroku" method="get">新しく時間割を登録する</a></td>
