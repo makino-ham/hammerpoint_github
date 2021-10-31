@@ -43,8 +43,17 @@ public class JikanwariKanri extends HttpServlet {
 		request.setAttribute("classList", classList);
 	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwaritouroku.jsp");
 	dispatcher.forward(request, response);
-
 	}
+else if (action.equals("ikkatu")) {
+	List<ClassRoom> classList = new ArrayList<ClassRoom>();
+	ClassDAO classDAO=new ClassDAO();
+	classList=classDAO.classListOut();
+	int check = 0;
+	request.setAttribute("check", check);
+	request.setAttribute("classList", classList);
+RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ikkatujikanwaritouroku.jsp");
+dispatcher.forward(request, response);
+}
 }
 
 	/**

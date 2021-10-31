@@ -15,7 +15,7 @@
 <a class="button c" href="/Hammerpoint/Login?action=start" method="post"id="absolute">ログアウト</a>
 
 <center>
-	<h1>${account.name }　さん　ようこそ</h1>
+	<h2>${account.name }　さん　ようこそ</h2>
 	<!-- aaaa -->
 	<table>
 		<tr>
