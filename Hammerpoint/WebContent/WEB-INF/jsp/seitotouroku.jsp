@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>xxxxxxxxxx山田太さんようこそxxxxxxxxxxx</h1>
-<form action="/Hammerpoint/SeitoKanri?action=touroku" method="post">
+<form action="/Hammerpoint/SeitoKanri" method="post">
 <table>
 <tr>
 <th>学籍番号</th><td><input type="text" name="gakuseki"></td>

@@ -5,7 +5,6 @@ public class Seito {
 	String gakusekiId;
 	String seitoName;
 	String mail;
-	String doubutuName;
 	int classId;
 	int doubutuId;
 	int gender;
@@ -20,12 +19,6 @@ public class Seito {
 		this.classId = classId;
 		this.doubutuId = doubutuId;
 		this.gender = gender;
-	}
-	public Seito(String gakusekiId, String seitoName, int gender, String doubutuName) {
-		this.gakusekiId = gakusekiId;
-		this.seitoName = seitoName;
-		this.gender = gender;
-		this.doubutuName = doubutuName;
 	}
 	public String getGakusekiId() {
 		return gakusekiId;
@@ -47,9 +40,6 @@ public class Seito {
 	}
 	public int getSeitoFlag() {
 		return seitoFlag;
-	}
-	public String getDoubutuName() {
-		return doubutuName;
 	}
 
 }

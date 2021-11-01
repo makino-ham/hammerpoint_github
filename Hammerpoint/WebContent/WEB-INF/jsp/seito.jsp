@@ -13,7 +13,7 @@
 	<table>
 		<tr>
 		<td><a class="button a" href="/Hammerpoint/SeitoKanri?action=touroku">生徒情報を登録する</a></td>
-		<td><a class="button a" href="/Hammerpoint/SeitoKanri?action=kensaku">生徒情報を変更、削除する</a></td>
+		<td><a class="button a" href="">生徒情報を変更、削除する</a></td>
 		</tr>
 		<tr>
 		<td><a class="button a" href="">生徒情報を一括登録する</a></td>
