@@ -12,9 +12,10 @@
 </head>
 <body>
 <h1>${account.name }　さん　ようこそ</h1>
+<p>変更削除</p>
 <a class="button c" href="/Hammerpoint/JikanwariKanri?action=kanri" method="post"id="absolute">←</a>
 
-<form action="/Hammerpoint/JikanwariKanri" method="post">
+<form action="/Hammerpoint/JikanwariKanri?action=hensaku" method="post">
 <center>
 <select name="classSelect" style="width:200px; font-size:18px;">
 	<option value="J00">クラスを選択してください</option>

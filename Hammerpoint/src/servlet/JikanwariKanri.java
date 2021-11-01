@@ -84,8 +84,15 @@ dispatcher.forward(request, response);
 		request.setAttribute("check", check);
 //もう一度遷移
 //ここで時間割登録と時間割変更削除一覧の画面に分岐したいが。。。
+		String action=request.getParameter("action");
+		if(action.equals("touroku")) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwaritouroku.jsp");
 			dispatcher.forward(request, response);
+		}else if(action.equals("hensaku")) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwarihensaku.jsp");
+			dispatcher.forward(request, response);
+		}
+
 
 		}
 
