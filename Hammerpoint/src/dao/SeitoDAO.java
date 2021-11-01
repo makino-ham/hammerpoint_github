@@ -3,7 +3,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.Seito;
 
@@ -43,5 +46,46 @@ public class SeitoDAO {
 			return false;
 		}
 		return true;
+	}
+
+	public List<Seito> seitoListOut(int classId) {
+		Connection conn = null;
+		List<Seito> seitoList = new ArrayList<Seito>();
+
+		try {
+			//データベースへ接続
+			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(DRIVER_NAME);
+			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
+
+			//select文の準備
+			String sql = "select seito.gakuseki_ID, seito.seito_name, seito.gender, doubutu.doubutu_name "
+					+ "from seito "
+					+ "join doubutu "
+					+ "on seito.doubutu_ID = doubutu.doubutu_ID "
+					+ "where seito.seito_flag != 2 and seito.class_ID = ?;";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			//select分の?に入れるものの設定
+			pStmt.setInt(1, classId);
+
+			//select文を実行し、結果表（Result)を取得
+			ResultSet rs = pStmt.executeQuery();
+
+			//結果表に格納されたレコードの内容を
+			//BookDatインスタンスに設定し、ArrayListインスタンスに追加
+			while(rs.next()) {
+				String gakusekiId = rs.getString("seito.gakuseki_ID");
+				String seitoName = rs.getString("seito.seito_name");
+				int gender = rs.getInt("seito.gender");
+				String doubutuName = rs.getString("doubutu.doubutu_name");
+				Seito seito = new Seito(gakusekiId, seitoName, gender, doubutuName);
+				seitoList.add(seito);
+			}
+
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return seitoList;
 	}
 }
