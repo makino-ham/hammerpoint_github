@@ -25,7 +25,7 @@
 	<c:forEach var="seito" items="${seitoList}">
 		<tr>
 		<td><c:out value="${seito.gakusekiId}" /></td>
-		<td><a href="./SeitoKanri?bID=${seito.gakusekiId}">${seito.seitoName}</a></td>
+		<td><a href="./SeitoKanri?action=${seito.gakusekiId}">${seito.seitoName}</a></td>
 		<td>
 		<c:choose>
 			<c:when test="${seito.gender == 0 }">男</c:when>
