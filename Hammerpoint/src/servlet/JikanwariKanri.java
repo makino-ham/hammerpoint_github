@@ -70,6 +70,8 @@ dispatcher.forward(request, response);
 		// TODO Auto-generated method stub
 //		リクエストパラメータの取得
 //		時間割登録のプルダウン（クラス選択）
+		String action=request.getParameter("action");
+		if(action.equals("touroku")||(action.equals("hensaku"))){//登録か変更削除の場合、一括登録は下のelse ifから
 		request.setCharacterEncoding("UTF-8");
 		int classId=Integer.parseInt(request.getParameter("classSelect"));
 		List<Kyouka> kyoukaList = new ArrayList<Kyouka>();
@@ -83,8 +85,8 @@ dispatcher.forward(request, response);
 		int check = 1;
 		request.setAttribute("check", check);
 //もう一度遷移
-//ここで時間割登録と時間割変更削除一覧の画面に分岐したいが。。。
-		String action=request.getParameter("action");
+//ここで時間割登録と時間割変更削除一覧の画面に分岐する
+
 		if(action.equals("touroku")) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwaritouroku.jsp");
 			dispatcher.forward(request, response);
@@ -92,11 +94,11 @@ dispatcher.forward(request, response);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwarihensaku.jsp");
 			dispatcher.forward(request, response);
 		}
-
-
+		}else if(action.equals("ikkatutouroku")){//一括登録の場合
+			
 		}
 
-
+	}
 
 
 
