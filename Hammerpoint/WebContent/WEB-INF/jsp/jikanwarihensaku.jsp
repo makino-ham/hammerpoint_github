@@ -24,6 +24,7 @@
 	</c:forEach>
 </select>
 <input type="submit" value="検索">
+
 </form>
 <c:choose>
 	<c:when test="${check == 1 }">
