@@ -49,4 +49,3 @@ public class ClassDAO {
 		return classList;
 	}
 }
-
