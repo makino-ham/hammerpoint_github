@@ -5,8 +5,6 @@ public class Seito {
 	String gakusekiId;
 	String seitoName;
 	String mail;
-	String doubutuName;
-	String className;
 	int classId;
 	int doubutuId;
 	int gender;
@@ -21,21 +19,6 @@ public class Seito {
 		this.classId = classId;
 		this.doubutuId = doubutuId;
 		this.gender = gender;
-	}
-	public Seito(String gakusekiId, String seitoName, int gender, String doubutuName) {
-		this.gakusekiId = gakusekiId;
-		this.seitoName = seitoName;
-		this.gender = gender;
-		this.doubutuName = doubutuName;
-	}
-	public Seito(String gakusekiId, String seitoName, int gender, String mail, int doubutuId, String doubutuName, String className) {
-		this.gakusekiId = gakusekiId;
-		this.seitoName = seitoName;
-		this.gender = gender;
-		this.mail = mail;
-		this.doubutuId = doubutuId;
-		this.doubutuName = doubutuName;
-		this.className = className;
 	}
 	public String getGakusekiId() {
 		return gakusekiId;
@@ -57,12 +40,6 @@ public class Seito {
 	}
 	public int getSeitoFlag() {
 		return seitoFlag;
-	}
-	public String getDoubutuName() {
-		return doubutuName;
-	}
-	public String getClassName() {
-		return className;
 	}
 
 }

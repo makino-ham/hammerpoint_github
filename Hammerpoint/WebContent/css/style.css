@@ -44,6 +44,13 @@ h1 {
 	margin: 15px 15px;
 	width:80px;
 }
+
+.d {
+	background-color: aquamarine;
+	color: black;
+	display: inline-block;
+	width:60px;
+}
 .textbox{
 	background-color: white;
 	display: inline-block;

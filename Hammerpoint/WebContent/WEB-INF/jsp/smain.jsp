@@ -20,7 +20,7 @@
 	<table>
 		<tr>
 		<td><a class="button a" href="/Hammerpoint/Login?action=seito" method="get">生徒の管理をする</a></td>
-		<td><a class="button a" href="">教員の管理をする</a></td>
+		<td><a class="button a" href="/Hammerpoint/Login?action=kyouin" method="get">教員の管理をする</a></td>
 		<td><a class="button a" href="">教科の管理をする</a></td>
 		<td><a class="button a" href="">データの管理をする</a></td>
 		</tr>
