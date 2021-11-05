@@ -15,7 +15,6 @@ public class SeitoDAO {
 	private final String JDBC_URL = "jdbc:mysql://localhost:3306/hammerpoint?useUnicode=true&characterEncoding=UTF-8";
 	private final String DB_USER = "root";
 	private final String DB_PASS = "earth";
-	//登録
 	public boolean create(Seito seito) {
 		//データベース接続
 		Connection conn = null;
@@ -47,9 +46,7 @@ public class SeitoDAO {
 			return false;
 		}
 		return true;
-	}
-
-	public List<Seito> seitoListOut(int classId) {
+	}	public List<Seito> seitoListOut(int classId) {
 		Connection conn = null;
 		List<Seito> seitoList = new ArrayList<Seito>();
 
@@ -134,55 +131,4 @@ public class SeitoDAO {
 		}
 		return seito;
 	}
-
-	public boolean seitoHenkouTouroku(Seito seito) {
-		Connection conn = null;
-		try {
-			//データベースへ接続
-			Class.forName("com.mysql.jdbc.Driver");
-			Class.forName(DRIVER_NAME);
-			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
-			//select文を準備
-			String sql = "update seito set seito_name = ?, mail = ?, doubutu_ID = ? where gakuseki_ID = ?;";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, seito.getSeitoName());
-			pStmt.setString(2, seito.getMail());
-			pStmt.setInt(3, seito.getDoubutuId());
-			pStmt.setString(4, seito.getGakusekiId());
-			//update文を実行(resultには追加された行数が代入される)
-			int result = pStmt.executeUpdate();
-			if (result != 1) {
-				return false;
-			}
-			} catch (SQLException | ClassNotFoundException e) {
-				e.printStackTrace();
-				return false;
-			}
-			return true;
-		}
-	public boolean seitoSakujo(String gakusekiId[]) {
-		Connection conn = null;
-		try {
-			//データベースへ接続
-			Class.forName("com.mysql.jdbc.Driver");
-			Class.forName(DRIVER_NAME);
-			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
-			//select文を準備
-			String sql = "update seito set seito_name = ?, mail = ?, doubutu_ID = ? where gakuseki_ID = ?;";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, seito.getSeitoName());
-			pStmt.setString(2, seito.getMail());
-			pStmt.setInt(3, seito.getDoubutuId());
-			pStmt.setString(4, seito.getGakusekiId());
-			//update文を実行(resultには追加された行数が代入される)
-			int result = pStmt.executeUpdate();
-			if (result != 1) {
-				return false;
-			}
-			} catch (SQLException | ClassNotFoundException e) {
-				e.printStackTrace();
-				return false;
-			}
-			return true;
-		}
 }
