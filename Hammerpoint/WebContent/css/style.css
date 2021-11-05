@@ -36,12 +36,16 @@ h1 {
 	margin: 10px 10px;
 }
 .c {
-
-
 	background-color: gray;
 	display: inline-block;
 	padding: 20px 20px;
 	margin: 15px 15px;
+	width:80px;
+}
+.d {
+	color:black;
+	background-color:aquamarine;
+	display: inline-block;
 	width:80px;
 }
 .textbox{

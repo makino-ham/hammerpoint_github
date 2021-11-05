@@ -46,6 +46,9 @@ public class Login extends HttpServlet {
 		}else if(action.equals("smain")) {
 			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/smain.jsp");
 			dispatcher.forward(request, response);
+		}else if(action.equals("jikanwari")) {
+			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/jikanwari.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 
