@@ -11,9 +11,9 @@
 </head>
 <body>
 <a class="button c" href="/Hammerpoint/JikanwariKanri?action=kanri" method="post"id="absolute">←</a>
-<form action="/Hammerpoint/JikanwariKanri?action=ikkatutouroku" method="post">
-<input type="file" name="ikkatutouroku">
-  <button type="submit">一括登録する</button>
+<form>
+<input type="file" name="aaaa">
+  <button type="submit">送信する</button>
 </form>
 </body>
 </html>
