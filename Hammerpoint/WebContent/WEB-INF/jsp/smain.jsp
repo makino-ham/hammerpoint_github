@@ -19,19 +19,19 @@
 	<!-- aaaa -->
 	<table>
 		<tr>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=seito" method="get">生徒の管理をする</a></td>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=kyouin" method="get">教員の管理をする</a></td>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=kyouka" method="get">教科の管理をする</a></td>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=data" method="get">データの管理をする</a></td>
+		<td><a class="button a" href="/Hammerpoint/Login?action=seito" method="get">生徒の管理をする</a></td>
+		<td><a class="button a" href="">教員の管理をする</a></td>
+		<td><a class="button a" href="">教科の管理をする</a></td>
+		<td><a class="button a" href="">データの管理をする</a></td>
 		</tr>
 		<tr>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=jikanwari" method="get">時間割の管理をする</a></td>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=gakkasenkou" method="get">学科専攻の管理をする</a></td>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=class" method="get">クラスの管理をする</a></td>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=password" method="get">パスワードの変更をする</a></td>
+		<td><a class="button a" href="/Hammerpoint/Login?action=jikanwari" method="get">時間割の管理をする</a></td>
+		<td><a class="button a" href="">学科専攻の管理をする</a></td>
+		<td><a class="button a" href="">クラスの管理をする</a></td>
+		<td><a class="button a" href="">パスワードの変更をする</a></td>
 		</tr>
 		<tr>
-		<td><a class="button a" href="/Hammerpoint/Seni?action=seitojoutai" method="get">生徒の状態を管理する</a></td>
+		<td><a class="button a" href="">生徒の状態を管理する</a></td>
 		</tr>
 	</table>
 </center>
