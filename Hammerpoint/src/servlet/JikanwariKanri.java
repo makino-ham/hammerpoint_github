@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.ClassDAO;
-import dao.IkkatutourokuDAO;
 import dao.KyoukaDAO;
 import model.ClassRoom;
 import model.Kyouka;
@@ -71,10 +70,7 @@ dispatcher.forward(request, response);
 		// TODO Auto-generated method stub
 //		リクエストパラメータの取得
 //		時間割登録のプルダウン（クラス選択）
-		String action=request.getParameter("action");
 		request.setCharacterEncoding("UTF-8");
-		if(action.equals("touroku")||(action.equals("hensaku"))){//登録か変更削除の場合、一括登録は下のelse ifから
-
 		int classId=Integer.parseInt(request.getParameter("classSelect"));
 		List<Kyouka> kyoukaList = new ArrayList<Kyouka>();
 		KyoukaDAO kyoukaDAO = new KyoukaDAO();
@@ -87,8 +83,8 @@ dispatcher.forward(request, response);
 		int check = 1;
 		request.setAttribute("check", check);
 //もう一度遷移
-//ここで時間割登録と時間割変更削除一覧の画面に分岐する
-
+//ここで時間割登録と時間割変更削除一覧の画面に分岐したいが。。。
+		String action=request.getParameter("action");
 		if(action.equals("touroku")) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwaritouroku.jsp");
 			dispatcher.forward(request, response);
@@ -96,24 +92,15 @@ dispatcher.forward(request, response);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/jikanwarihensaku.jsp");
 			dispatcher.forward(request, response);
 		}
-		}
-		else if(action.equals("ikkatutouroku")){//一括登録の場合
-
-			IkkatutourokuDAO ikkatutourokuDAO = new IkkatutourokuDAO();
-
-//			IkkatutourokuDAO touroku=ikkatutourokuDAO.Ikkatutouroku();
-
-			int check = 1;
-			request.setAttribute("check", check);
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Ikkatutouroku.jsp");
-			dispatcher.forward(request, response);
 
 
-
-				}
-			}
 		}
 
+
+
+
+
+
+	}
 
 
