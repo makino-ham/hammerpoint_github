@@ -12,8 +12,8 @@
 <h1>山田太、ふぁっ</h1>
 	<table>
 		<tr>
-		<td><a class="btn a" href="/Hammerpoint/KyouinKanri?action=touroku">教員情報を登録する</a></td>
-		<td><a class="btn a" href="/Hammerpoint/KyouinKanri?action=hensaku">教員情報を変更、削除する</a></td>
+		<td><a class="btn a" href="">教員情報を登録する</a></td>
+		<td><a class="btn a" href="">教員情報を変更、削除する</a></td>
 		</tr>
 	</table>
 </center>
