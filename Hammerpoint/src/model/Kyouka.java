@@ -16,6 +16,10 @@ public class Kyouka {
 		this.kyoukaName = kyoukaName;
 		this.kyoukaId = kyoukaId;
 	}
+		public Kyouka(String kyoukaName, int kyoukaId) {
+		this.kyoukaName = kyoukaName;
+		this.kyoukaId = kyoukaId;
+	}
 	public int getKyoukaId() {
 		return kyoukaId;
 	}
