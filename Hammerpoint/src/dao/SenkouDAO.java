@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Gakka;
+import model.Senkou;
 
-public class gakkaDAO {
+public class SenkouDAO {
 	//データベース接続に使用する情報
 	private final String DRIVER_NAME="com.mysql.jdbc.Driver";
 	private final String JDBC_URL = "jdbc:mysql://localhost:3306/hammerpoint?useUnicode=true&characterEncoding=UTF-8";
@@ -19,10 +19,10 @@ public class gakkaDAO {
 	//MySQLのパスワード
 	private final String DB_PASS = "earth";
 
-	public List<Gakka> gakkaselect() {
+	public List<Senkou> gakkaselect() {
 		Connection conn = null;
 
-		List<Gakka> gakkaList = new ArrayList<Gakka>();
+		List<Senkou> senkouList = new ArrayList<Senkou>();
 
 		try {
 			//データベースへ接続
@@ -31,20 +31,20 @@ public class gakkaDAO {
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 			//select文の準備
-			String sql = "select gakka_ID, gakka_name from gakka";
+			String sql = "select senkou_ID, senkou_name from gakka";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 
 			//selectを実行し、結果表(result)を取得
 			ResultSet rs = pstmt.executeQuery();
 
-			//結果表に格納されたレコードの内容をgakkaインスタンスに設定し、ArrayListインスタンスに追加
+			//結果表に格納されたレコードの内容をsenkouインスタンスに設定し、ArrayListインスタンスに追加
 			while(rs.next()) {
-				int id = rs.getInt("gakkaId");
-				String name = rs.getString("gakkaName");
+				int id = rs.getInt("senkou_ID");
+				String name = rs.getString("senkou_name");
 
-				//gakka方の変数に、取得したデータを引数として代入→リストに追加
-				Gakka gakka = new Gakka(id, name);
-				gakkaList.add(gakka);
+				//senkou型の変数に、取得したデータを引数として代入→リストに追加
+				Senkou senkou = new Senkou(id, name);
+				senkouList.add(senkou);
 			}
 
 		} catch(SQLException e) {
@@ -64,10 +64,10 @@ public class gakkaDAO {
 				}
 			}
 		}
-		return gakkaList;
+		return senkouList;
 	}
 
-	public boolean create(Gakka gakka) {
+	public boolean create(Senkou senkou) {
 		Connection conn = null;
 
 		try {
@@ -76,12 +76,12 @@ public class gakkaDAO {
 			Class.forName(DRIVER_NAME);
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
-			//INSERT文の準備(gakka_idは自動連番なので指定しなくてよい
-			String sql = "INSERT INTO GAKKA(GAKKA_NAME) VALUES(?)";
+			//INSERT文の準備(senkou_idは自動連番なので指定しなくてよい
+			String sql = "INSERT INTO SENKOU(SENKOU_NAME) VALUES(?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//INSERT文中の「?」に使用する値を設定しSQLを完成
-			pStmt.setString(1, gakka.getGakkaName());
+			pStmt.setString(1, senkou.getSenkouName());
 
 			//INSERT文を実行(result二は追加された行数が代入される)
 			int result = pStmt.executeUpdate();

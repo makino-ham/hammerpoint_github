@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.gakkaDAO;
+import model.Gakka;
 
 /**
  * Servlet implementation class GakkaSenkouKanri
@@ -65,7 +69,55 @@ public class GakkaSenkouKanri extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//リクエストパラメータの取得
+		request.setCharacterEncoding("UTF-8");
+		String action = request.getParameter("action");
+
+		//フォワード先
+		String forwardPath = null;
+
+		//選択の処理
+		if (action.equals("select")) {
+			//daoのインスタンスの作成
+			gakkaDAO gaDAO = new gakkaDAO();
+
+			//メソッドの呼び出し→リストに確保
+			List<Gakka> gaList = gaDAO.gakkaselect();
+
+			//取得データをスコープへ保存
+			request.setAttribute("gaList", gaList);
+
+			//フォワード先をxx画面に設定
+			forwardPath = "";
+		//登録の処理
+		} else if (action.equals("touroku")) {
+			//リクエストパラメータから呼び出す(gakkatouroku.jsp)
+			String gakka = request.getParameter("gakkatouroku");
+
+			//gakka型に入れる
+			Gakka gakka2 = new Gakka(gakka);
+
+			//daoのインスタンスの作成
+			gakkaDAO gaDAO = new gakkaDAO();
+
+			//メソッドの呼び出し+結果を変数に入れる
+			boolean hantei = gaDAO.create(gakka2);
+
+			//hanteiがtrueかfalseか
+			if (hantei) {
+				//フォワード先をシス管登録完了画面に設定
+				forwardPath = "WEB-INF/jsp/siskantourokukanryou.jsp";
+			} else {
+				//フォワード先を学科登録画面に設定
+				forwardPath = "/WEB-INF/jsp/gakkatouroku.jsp";
+				//エラーメッセージを入れる
+				String errormsg = "";
+			}
+		}
+
+		//出力画面へフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+		dispatcher.forward(request, response);
 	}
 
 }

@@ -20,6 +20,12 @@ public class Gakka {
 	public String getGakkaName() {
 		return gakkaName;
 	}
+	public void setGakkaId(int gakkaId) {
+		this.gakkaId = gakkaId;
+	}
+	public void setGakkaName(String gakkaName) {
+		this.gakkaName = gakkaName;
+	}
 
 
 }

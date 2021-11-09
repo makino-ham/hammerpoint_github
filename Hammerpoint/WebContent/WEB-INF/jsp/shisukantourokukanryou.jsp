@@ -7,9 +7,11 @@
 <title>シス管登録完了</title>
 </head>
 <body>
-<center>
-<h1>登録が完了しました</h1>
-<input type="submit" value="メインへ戻る">
-</center>
+	<center>
+		<h1>登録が完了しました</h1>
+		<form action="/Hammerpoint/Seni?action=tourokukanryou" method="post">
+			<input type="submit" value="メイン画面へ戻る">
+		</form>
+	</center>
 </body>
 </html>
