@@ -15,6 +15,7 @@ public class SeitoDAO {
 	private final String JDBC_URL = "jdbc:mysql://localhost:3306/hammerpoint?useUnicode=true&characterEncoding=UTF-8";
 	private final String DB_USER = "root";
 	private final String DB_PASS = "earth";
+	//登録
 	public boolean create(Seito seito) {
 		//データベース接続
 		Connection conn = null;
@@ -46,7 +47,9 @@ public class SeitoDAO {
 			return false;
 		}
 		return true;
-	}	public List<Seito> seitoListOut(int classId) {
+	}
+
+	public List<Seito> seitoListOut(int classId) {
 		Connection conn = null;
 		List<Seito> seitoList = new ArrayList<Seito>();
 

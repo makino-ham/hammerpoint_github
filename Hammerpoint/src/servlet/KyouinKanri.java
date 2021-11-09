@@ -36,12 +36,12 @@ public class KyouinKanri extends HttpServlet {
 		String action = request.getParameter("action");
 
 		if(action.equals("touroku")) {
-			//フォワード先を教員登録画面に設定
 			List<Gakka> gakkaList = new ArrayList<Gakka>();
 			gakkaDAO gakkaDAO = new gakkaDAO();
 			gakkaList = gakkaDAO.gakkaselect();
 			request.setAttribute("gakkaList", gakkaList);
 
+			//フォワード先を教員登録画面に設定
 			forwardPath = "/WEB-INF/jsp/kyouintouroku.jsp";
 		}else if(action.equals("hensaku")) {
 			List<ClassRoom> classList = new ArrayList<ClassRoom>();
@@ -54,12 +54,6 @@ public class KyouinKanri extends HttpServlet {
 		}
 
 		//フォワード文の記述
-		List<ClassRoom> classList = new ArrayList<ClassRoom>();
-		ClassDAO classDAO = new ClassDAO();
-		classList = classDAO.classListOut();
-		request.setAttribute("classList", classList);
-
-		//フォワード先を教員変更削除検索画面に設定
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 			dispatcher.forward(request, response);
 
@@ -71,15 +65,20 @@ public class KyouinKanri extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		//actionの値をリクエストパラメータから取得
-		String action = request.getParameter("action");
-
 		//フォワード先
 		String forwardPath = null;
 
+		//actionの値をリクエストパラメータから取得
+		String action = request.getParameter("action");
+
 		if(action.equals("touroku")) {
+			//フォワード先をシス管登録完了画面に設定
+			forwardPath = "/WEB-INF/jsp/shisukantourokukanryou.jsp";
 		}
 
+		//フォワード文の記述
+		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+		dispatcher.forward(request, response);
 	}
 
 }

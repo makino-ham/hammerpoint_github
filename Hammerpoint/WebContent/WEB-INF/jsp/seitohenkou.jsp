@@ -9,17 +9,15 @@
 </head>
 <body>
 <h1>xxxxxxxxxx山田太さんようこそxxxxxxxxxxx</h1>
-<form action="/Hammerpoint/SeitoKanri?action=${seito.gakusekiId }" method="post"><table>
-<tr>
 <form action="/Hammerpoint/SeitoKanri?action=${seito.gakusekiId }" method="post">
-</tr>
+<table>
 <tr>
 <th>学籍番号</th><td><c:out value="${seito.gakusekiId}" /></td>
 </tr>
 <tr>
 <th>生徒名</th><td><input type="text" name="seitoName" value="${seito.seitoName }"></td>
 </tr>
-</tr>
+<tr>
 <th>性別</th>
 <td>
 		<c:choose>

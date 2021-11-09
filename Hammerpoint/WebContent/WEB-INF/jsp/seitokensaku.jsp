@@ -38,7 +38,7 @@
 		</tr>
 	</c:forEach>
 	</table>
-		<input type="submit" value="選択した生徒を削除">
+	<input type="submit" value="選択した生徒を削除">
 	</form>
 	</c:when>
 </c:choose>
