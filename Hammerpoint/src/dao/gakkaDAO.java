@@ -39,10 +39,8 @@ public class gakkaDAO {
 
 			//結果表に格納されたレコードの内容をgakkaインスタンスに設定し、ArrayListインスタンスに追加
 			while(rs.next()) {
-
-				int id = rs.getInt("gakka_ID");
-				String name = rs.getString("gakka_Name");
-
+				int id = rs.getInt("gakkaId");
+				String name = rs.getString("gakkaName");
 
 				//gakka方の変数に、取得したデータを引数として代入→リストに追加
 				Gakka gakka = new Gakka(id, name);
