@@ -12,10 +12,10 @@
 <form action="/Hammerpoint/SeitoKanri?action=touroku" method="post">
 <table>
 <tr>
-<th>学籍番号</th><td><input type="text" name="gakuseki" value="${seito.gakusekiId }"></td>
+<form action="/Hammerpoint/SeitoKanri?action=${seito.gakusekiId }" method="post">
 </tr>
 <tr>
-<th>生徒名</th><td><input type="text" name="seitoName" value="${seito.seitoName }"></td>
+<th>学籍番号</th><td><c:out value="${seito.gakusekiId}" /></td>
 </tr>
 <tr>
 <th>性別</th>
