@@ -31,7 +31,7 @@ public class gakkaDAO {
 			conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS);
 
 			//select文の準備
-			String sql = "select gakka_ID, gakka_name from gakka;";
+			String sql = "select gakka_ID, gakka_name from gakka";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 
 			//selectを実行し、結果表(result)を取得
@@ -39,8 +39,10 @@ public class gakkaDAO {
 
 			//結果表に格納されたレコードの内容をgakkaインスタンスに設定し、ArrayListインスタンスに追加
 			while(rs.next()) {
+
 				int id = rs.getInt("gakka_ID");
 				String name = rs.getString("gakka_Name");
+
 
 				//gakka方の変数に、取得したデータを引数として代入→リストに追加
 				Gakka gakka = new Gakka(id, name);

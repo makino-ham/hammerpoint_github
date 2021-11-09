@@ -9,8 +9,8 @@
 </head>
 <body>
 	<p class="x">専攻</p>
-	<form action = "/Hammerpoint/GakkaSenkouKanri?action=x" method="post">
-		<input type="text" name="x">
+	<form action = "/Hammerpoint/GakkaSenkouKanri?action=senkoutouroku" method="post">
+		<input type="text" name="senkoutouroku">
 		<input type="submit" value="専攻登録">
 	</form>
 </body>

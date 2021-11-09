@@ -27,37 +27,18 @@ public class Seni extends HttpServlet {
 
 		//actionの値をリクエストパラメータから取得
 		String action = request.getParameter("action");
-		if(action.equals("smain")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/smain.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("seito")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/seito.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("kyouin")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/kyouin.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("kyouka")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/kyouka.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("data")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/data.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("jikanwari")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/jikanwari.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("gakkasenkou")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/gakkasenkou.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("class")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/class.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("password")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/password.jsp");
-			dispatcher.forward(request, response);
-		}else if(action.equals("seitojoutai")) {
-			RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/jsp/seitojoutai.jsp");
-			dispatcher.forward(request, response);
+
+		if(action.equals("gakkasenkou")) {
+			//フォワード先を入力画面に設定
+			forwardPath = "/WEB-INF/jsp/gakkasenkou.jsp";
+		} else if (action.equals("tourokukanryou")) {
+			//フォワード先をindex画面に設定
+			forwardPath = "/WEB-INF/index.jsp";
 		}
+
+		//フォワード文の記述
+		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
+		dispatcher.forward(request, response);
 	}
 
 	/**

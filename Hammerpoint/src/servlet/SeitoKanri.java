@@ -56,26 +56,10 @@ public class SeitoKanri extends HttpServlet {
 			session.setAttribute("check", check);*/
 			request.setAttribute("classList", classList);
 			forwardPath = "/WEB-INF/jsp/seitokensaku.jsp";
-		} else {
-			Seito seito = new Seito();
-			SeitoDAO seitoDAO = new SeitoDAO();
-			seito = seitoDAO.seitoHenkou(action);//学籍番号を引数にセットする
-			//動物リストを作成
-			List<Doubutu> doubutuList = new ArrayList<Doubutu>();
-			DoubutuDAO doubutuDAO = new DoubutuDAO();
-			doubutuList = doubutuDAO.doubutuListOut();
-			//クラスリストを作成
-			List<ClassRoom> classList = new ArrayList<ClassRoom>();
-			ClassDAO classDAO = new ClassDAO();
-			classList = classDAO.classListOut();
-			request.setAttribute("seito", seito);
-			request.setAttribute("classList", classList);
-			request.setAttribute("doubutuList", doubutuList);
-			forwardPath = "/WEB-INF/jsp/seitohenkou.jsp";
+		}
 		//設定されたフォワード先にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 		dispatcher.forward(request, response);
-		}
 
 	}
 
@@ -115,17 +99,6 @@ public class SeitoKanri extends HttpServlet {
 			request.setAttribute("check", check);
 			request.setAttribute("seitoList", seitoList);
 			forwardPath = "/WEB-INF/jsp/seitokensaku.jsp";
-		}  else if (action.equals("sakujo")) {
-			String [] gakusekiId = request.getParameterValues("gakusekiId");
-
-		} else {//変更処理
-			String seitoName = request.getParameter("seitoName");
-			String mail = request.getParameter("mail");
-			int doubutuId = Integer.parseInt(request.getParameter("doubutuSelect"));
-			Seito seito = new Seito(action, seitoName, mail, doubutuId);//actionは学籍番号
-			SeitoDAO seitoDAO = new SeitoDAO();
-			seitoDAO.seitoHenkouTouroku(seito);
-			forwardPath =  "/WEB-INF/jsp/seito.jsp";
 		}
 		//設定されたフォワード先にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
