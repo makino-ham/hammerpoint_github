@@ -35,11 +35,9 @@ public class SeitoKanri extends HttpServlet {
 		if (action == null) {
 			forwardPath = "/WEB-INF/jsp/seito.jsp";
 		} else if (action.equals("touroku")) {
-			//動物リストを作成
 			List<Doubutu> doubutuList = new ArrayList<Doubutu>();
 			DoubutuDAO doubutuDAO = new DoubutuDAO();
 			doubutuList = doubutuDAO.doubutuListOut();
-			//クラスリストを作成
 			List<ClassRoom> classList = new ArrayList<ClassRoom>();
 			ClassDAO classDAO = new ClassDAO();
 			classList = classDAO.classListOut();
@@ -74,10 +72,10 @@ public class SeitoKanri extends HttpServlet {
 			request.setAttribute("classList", classList);
 			request.setAttribute("doubutuList", doubutuList);
 			forwardPath = "/WEB-INF/jsp/seitohenkou.jsp";
-		}
 		//設定されたフォワード先にフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 		dispatcher.forward(request, response);
+		}
 
 	}
 

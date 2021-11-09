@@ -36,12 +36,12 @@ public class KyouinKanri extends HttpServlet {
 		String action = request.getParameter("action");
 
 		if(action.equals("touroku")) {
+			//フォワード先を教員登録画面に設定
 			List<Gakka> gakkaList = new ArrayList<Gakka>();
 			gakkaDAO gakkaDAO = new gakkaDAO();
 			gakkaList = gakkaDAO.gakkaselect();
 			request.setAttribute("gakkaList", gakkaList);
 
-			//フォワード先を教員登録画面に設定
 			forwardPath = "/WEB-INF/jsp/kyouintouroku.jsp";
 		}else if(action.equals("hensaku")) {
 			List<ClassRoom> classList = new ArrayList<ClassRoom>();
@@ -54,6 +54,12 @@ public class KyouinKanri extends HttpServlet {
 		}
 
 		//フォワード文の記述
+		List<ClassRoom> classList = new ArrayList<ClassRoom>();
+		ClassDAO classDAO = new ClassDAO();
+		classList = classDAO.classListOut();
+		request.setAttribute("classList", classList);
+
+		//フォワード先を教員変更削除検索画面に設定
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardPath);
 			dispatcher.forward(request, response);
 
@@ -73,6 +79,7 @@ public class KyouinKanri extends HttpServlet {
 
 		if(action.equals("touroku")) {
 		}
+
 	}
 
 }
