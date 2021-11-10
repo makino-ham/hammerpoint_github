@@ -18,14 +18,8 @@ public class Jikanwari {
 		this.jugyouSuu = jugyouSuu;
 		this.jigen = jigen;
 	}
-
-
-
 	public int getYoubiId() {
 		return youbiId;
-	}
-	public int getJugyouSuu() {
-		return jugyouSuu;
 	}
 	public int getJigen() {
 		return jigen;
@@ -45,7 +39,9 @@ public class Jikanwari {
 	public String getSenkouName() {
 		return senkouName;
 	}
-
+	public int getJugyouSuu() {
+		return jugyouSuu;
+	}
 
 
 }
