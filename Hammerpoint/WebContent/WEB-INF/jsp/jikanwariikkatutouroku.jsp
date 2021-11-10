@@ -11,9 +11,24 @@
 </head>
 <body>
 <a class="button c" href="/Hammerpoint/JikanwariKanri?action=kanri" method="post"id="absolute">←</a>
-<form action="/Hammerpoint/JikanwariKanri?action=ikkatutouroku" method="post">
-<input type="file" name="ikkatutouroku">
+<form action="/Hammerpoint/Ikkatutouroku?action=ikkatutouroku" method="post">
+<input type="file" name="ikkatutouroku"accept=".csv">
+
   <button type="submit">一括登録する</button>
 </form>
+
+	<!--
+	<table border="1">
+		<tr><th>選択</th><th>教科</th></tr>
+	<c:forEach var="kyouka" items="${ikkatuList}">
+		<tr>
+		<th><c:out value="${Jikanwari.kyoukaID}" /></th>
+		<th><c:out value="${Jikanwari.youbiId}" /></th>
+		<th><c:out value="${Jikanwari.jugyouSuu}" /></th>
+		<th><c:out value="${Jikanwari.jigen}" /></th>
+		</tr>
+	</c:forEach>
+	</table>
+-->
 </body>
 </html>
